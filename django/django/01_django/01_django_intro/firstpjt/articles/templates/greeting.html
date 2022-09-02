@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Greeting</h1>
+  <p>안녕하세요 저는 {{ name|lower }} 입니다.</p>
+  <p>안녕하세요 저는 {{ name }} 입니다.</p>
+  <p>안녕하세요 나이는 {{ age }}살 입니다.</p>
+  <p>안녕하세요 가족은 {{ family|length }}명 입니다.</p>
+  <p>안녕하세요 가족은 {{ family }}가 있습니다.</p>
+  <p>안녕하세요 가족은 {{ family.0 }}가 있습니다.</p>
+  <a href="{% url 'index' %}"> 돌아가기</a>
+{% endblock content %}
