@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>hello django</h1>
+  <ul>
+    <li><a href="{% url 'greeting' %}"> Greeting</a></li>
+    <li><a href="{% url 'throw' %}"> Throw</a></li>
+    <li><a href="{% url 'dinner' %}"> Dinner</a></li>
+    <li><a href="{% url 'hello' 'tom'%}"> Hello</a></li>
+  </ul>
+{% endblock content %}
