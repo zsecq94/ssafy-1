@@ -34,7 +34,7 @@ def create(request):
     else:
         # new
         form = ArticleForm()
-    context = {
+    context = { 
         'form': form,
     }
     return render(request, 'articles/create.html', context)
