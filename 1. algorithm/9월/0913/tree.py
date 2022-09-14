@@ -30,9 +30,11 @@ for idx in range(0, len(lst), 2):
     else:
         tree[p][1] = c
     parent[c] = p
+print(tree)
+print(parent)
 
-pre(1)
-print()
-pos(1)
-print()
-ino(1)
+# pre(1)
+# print()
+# pos(1)
+# print()
+# ino(1)
