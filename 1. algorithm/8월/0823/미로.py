@@ -1,8 +1,8 @@
 import sys; sys.stdin = open('123.txt', 'r')
 
 # 우 하 좌 상
-dr = [0, +1, 0, -1]
-dc = [+1, 0, -1, 0]
+dr = [0, 1, 0, -1]
+dc = [1, 0, -1, 0]
 
 def asd(curi, curj):
     st = []
