@@ -35,6 +35,6 @@ print(parent)
 
 # pre(1)
 # print()
-# pos(1)
+pos(1)
 # print()
 # ino(1)

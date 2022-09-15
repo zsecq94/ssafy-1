@@ -7,8 +7,10 @@ def enq(n):
 
     c = last
     p = c // 2
-    while p and heap[p] > heap[c]:      # 부모가 있고, 부모 > 자식 조건을 만족할때까지 자리 교환
+    while p and heap[p] > heap[c]:      # 부모가 있고, 부모 > 자식 조건을 만족할 때까지 자리 교환
         heap[p], heap[c] = heap[c], heap[p]
+        c = p
+        p //= 2
 
 T = int(input())
 for tc in range(1, T+1):
@@ -19,7 +21,8 @@ for tc in range(1, T+1):
 
     for i in arr:
         enq(i)
-    # print(heap)
+    print(heap)
+
     a = heap[-1]
     b = heap.index(a) // 2
     result = 0
