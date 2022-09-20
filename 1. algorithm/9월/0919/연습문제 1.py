@@ -36,25 +36,25 @@ def htob(c):
         intC = ord(c) - ord('A') + 10
 
     result = ''
-    for i in range(4):
-        result = str(intC%2) + result
-        intC //= 2
-
     # for i in range(4):
-    #     if intC&8:
-    #         result = '1' + result
-    #     else:
-    #         result = '0' + result
-    #     intC *= 2
+    #     result = str(intC%2) + result
+    #     intC //= 2
+
+    for i in range(4):
+        if intC&8:
+            result = '1' + result
+        else:
+            result = '0' + result
+        intC *= 2
 
     return result
 
-def patt():
-    pat = {
-        '0': '0000',
-        '1': '0001',
-        ...
-    }
+# def patt():
+#     pat = {
+#         '0': '0000',
+#         '1': '0001',
+#         ...
+#     }
 # a = '0000000111100000011000000111100110000110000111100111100111111001100111'
 # # a = '00000010001101'
 #
@@ -66,8 +66,9 @@ b = '0F97A3'
 #1 16진수 문자열을 이진수 문자열로
 a = ''
 for c in b:
-    a = a + htob(c)
+    a += htob(c)
+print(a)
 
 #2 2진수 문자열을 10진수 숫자로
-for i in range(0, len(a), 7):
-    print(btod(a[i:i+7]))
+# for i in range(0, len(a), 7):
+#     print(btod(a[i:i+7]))
