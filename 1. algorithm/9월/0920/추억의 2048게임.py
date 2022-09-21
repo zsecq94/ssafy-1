@@ -30,6 +30,7 @@ def turn_270(m):
 dx = [0]
 dy = [1]
 def go(i, j):
+    newArr[i].append(0)
     st = [(i, j)]
     while st:
         ii, jj = st.pop(0)
@@ -81,6 +82,30 @@ for tc in range(1, int(input())+1):
             for j in range(1):
                 go(i, j)
         ARR1 = turn_270(newArr)
+        print(f'#{tc}')
+        for i in range(N):
+            for j in range(N):
+                print(ARR1[i][j], end=' ')
+            print()
+
+    elif S == 'right':
+        newArr = turn_180(arr)
+        for i in range(N):
+            for j in range(1):
+                go(i, j)
+        ARR1 = turn_180(newArr)
+        print(f'#{tc}')
+        for i in range(N):
+            for j in range(N):
+                print(ARR1[i][j], end=' ')
+            print()
+
+    else:
+        newArr = arr
+        for i in range(N):
+            for j in range(1):
+                go(i, j)
+        ARR1 = newArr
         print(f'#{tc}')
         for i in range(N):
             for j in range(N):
