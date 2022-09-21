@@ -1,4 +1,4 @@
-# import sys; sys.stdin = open('123.txt', 'r')
+import sys; sys.stdin = open('123.txt', 'r')
 def find(arr):
     cntA = 0
     cntB = 0
