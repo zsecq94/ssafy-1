@@ -3,8 +3,6 @@ import sys; sys.stdin = open('123.txt', 'r')
 def f(v, x, y, q):
     if v == 1:
         arr[b//2][b//2] = '*'
-        return
-
 
     else:
         for i in range(x, y):
