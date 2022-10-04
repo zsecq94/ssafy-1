@@ -6,6 +6,7 @@ def find_area(ix, iy, jx, jy, p):
     for i in range(ix, iy):
         for j in range(jx, jy):
             if arr[i][j] != a:
+                result.append('(')
                 find_area(ix, iy//2, jx, jy//2, p//4)
 
 
