@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+  <h1><b>UPDATE</b></h1>
+  <hr>
+  <form action="{% url 'movies:update' movie.pk %}" method="POST">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+    <button type="reset" class="btn btn-primary">
+      Cancel
+    </button>
+  {% endbuttons %}
+</form>
+<hr>
+<a href="{% url 'movies:index' %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">BACK</a>
+
+{% endblock content %}
