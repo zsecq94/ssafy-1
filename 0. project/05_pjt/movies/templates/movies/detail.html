@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="text-center"><b>DETAIL</b></h1>
+  <hr>
+  <div class="col-md-3" style="float: none; margin:0 auto;">
+    <img src="{{ movies.poster_url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><b>{{ movies.title }}</b></h5>
+      <p class="card-text">Audience : {{ movies.audience }}</p>
+      <p class="card-text">Release Dates : {{ movies.release_date }}</p>
+      <p class="card-text">Genre : {{ movies.genre }}</p>
+      <p class="card-text">{{ movies.description }}</p>
+      <a href="{% url 'movies:update' movies.pk %}" class="btn btn-info">UPDATE</a> <a href="{% url 'movies:delete' movies.pk %}" class="btn btn-danger">DELETE</a>
+    </div>
+  </div>
+  <a href="{% url 'movies:index' %}" class="btn btn-warning">BACK</a>
+{% endblock content %}
+
