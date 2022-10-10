@@ -23,5 +23,6 @@ for i in range(m):
     a, b = map(int, input().split())
     tree[a].append(b)
     tree[b].append(a)
-# print(tree)
+
+print(tree)
 print(bfs(1))
