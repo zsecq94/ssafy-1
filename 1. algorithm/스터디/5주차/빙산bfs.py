@@ -1,29 +1,70 @@
 import sys; sys.stdin = open('123.txt', 'r')
-import copy
+from collections import deque
+def asd(arr):
+    global cnt
+    visited = [[False] * M for _ in range(N)]
+    for i in range(N):
+        for j in range(M):
+            if arr[i][j] != 0 and visited[i][j] == False:
+                visited[i][j] = True
+                cnt += 1
+                q = deque()
+                q.append((i,j))
+                while q:
+                    x, y = q.popleft()
+                    for xx, yy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                        nx = xx + x
+                        ny = yy + y
+                        if 0<=nx<N and 0<=ny<M and arr[nx][ny] != 0 and visited[nx][ny] == False:
+                            q.append((nx, ny))
+                            visited[nx][ny] = True
+    return 0
 
-def bfs(x, y):
-    q = [(x, y)]
-    while q:
+def find_zero(lst):
+    zero_lst = deque()
+    while lst:
         zero_cnt = 0
-        xx, yy = q.pop(0)
-        for ii, jj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            nx = xx + ii
-            ny = yy + jj
-            if 0<=nx<n and 0<=ny<m and arr[nx][ny] == 0:
+        x, y = lst.popleft()
+        for xx, yy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            nx = xx + x
+            ny = yy + y
+            if 0<=nx<N and 0<=ny<M and arr[nx][ny] == 0:
                 zero_cnt += 1
-                q.append((nx, ny))
-        arr1[xx][yy] -= zero_cnt
+        zero_lst.append(zero_cnt)
+    return zero_lst
 
-
-
-
-
-n, m = map(int, input().split())
-arr = [list(map(int, input().split())) for _ in range(n)]
-arr1 = copy.deepcopy(arr)
+N, M = map(int, input().split())
+arr = [list(map(int, input().split())) for _ in range(N)]
+melt_cnt = 0
 
 while True:
-    for i in range(n):
-        for j in range(m):
+    cnt = 0
+    asd(arr)
+    lst = deque()
+    for i in range(N):
+        for j in range(M):
             if arr[i][j] != 0:
-                bfs(i, j)
+                lst.append((i, j))
+    zero_lst = find_zero(lst)
+    zxc = 0
+    for i in range(N):
+        for j in range(M):
+            if arr[i][j] != 0:
+                if arr[i][j] - zero_lst[zxc] < 0:
+                    arr[i][j] = 0
+                    zxc += 1
+                else:
+                    arr[i][j] -= zero_lst[zxc]
+                    zxc += 1
+    melt_cnt += 1
+    if cnt > 1:
+        break
+    zero_cnt = 0
+    for i in range(N):
+        for j in range(M):
+            if arr[i][j] == 0:
+                zero_cnt += 1
+    if zero_cnt == N*M:
+        melt_cnt = 1
+        break
+print(melt_cnt-1)
