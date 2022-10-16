@@ -76,6 +76,17 @@
 - SQL 키워드는 대소문자를 구분하지 않음 하지만 대문자로 작성하는 것을 권장
 
 ---
+#### Data Types 종류
+- NULL, INTEGER, REAL, TEXT, BLOB(입력된 그대로 저장된 데이터 덩어리 예시:이미지 데이터)
+
+---
+#### Constraints 종류
+- NOT NULL, UNIQUE, PROMARY KEY(각 테이블에는 하나으 ㅣ기본 키만 있음), AUTOINCREMENT(사용되지 않은 값이나 이전에 삭제된 행의 값을 재사용하는 것을 방지)
+
+---
+## DDL
+
+---
 #### CREATE TABLE
 ```python
 CREATE TABLE contacts (
@@ -84,3 +95,61 @@ CREATE TABLE contacts (
   email TEXT NOT NULL UNIQUE
 );
 ```
+- 실행하고자 하는 명령문에 커서를 두고 마우스 우측버튼 -> Run Selected Query 선택
+- id 컬럼은 직적 정의하지 않으면 자동으로 rowid라는 컬럼으로 만들어짐
+
+---
+#### ALTER TABLE
+- SQLite의 ALTER TABLE 문을 사용하면 기존 테이블을 다음과 같이 변경할 수 있음
+-   Rename a table(ALTER TABLE table_name RENAME TO new_table_name;) : 테이블명 변경
+-   Rename a column(ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;) : 컬럼명 변경
+-   Add a new clumn to a table(ALTER TABLE table_name ADD COLUMN column_name;) : 새 컬럼 추가
+-   Delete a column(ALTER TABLE table_name DROP COLIMN column_name;) : 컬럼 삭제(컬럼이 다른 부분에서 참조되는 경우 삭제 불가)
+
+---
+#### DROP TABLE
+- 데이터베이스에서 테이블을 제거
+-   DROP TABLE table_name;(존재하지 않는 테이블을 제거하면 SQLite에서 오류가 발생)
+-   한 번에 하나으 ㅣ테이블만 삭제할 수 있음
+-   실행 취소하거나 복구할 수 없음(각별히 주의)
+
+---
+## DML
+
+---
+#### SELECT
+- SELECT column1, column2 FROM table_name; : 특정 테이블에서 데이터를 조회 FROM절에서 데이터를 가져올 테이블을 지정
+- ORDER BY
+- DISTINCT
+- WHERE
+- LIMIT
+- LIKE
+- GROUP BY
+- SELECT first_name, age FROM users; (유저테이블에서 첫번째 이름과 나이를 조회)
+- SELECT * FROM usersl (전체 데이터를 조회[*])
+
+---
+#### ORDER BY
+- SELECT select_list FROM table_name ORDER BY column_1 ASC, column_2 DESC;
+- ORDER BY 절은 FROM 절 뒤에 위치함
+- ASC : 오름차순(기본 값)
+- DESC : 내림차순
+
+---
+#### DISTINCT
+- SELECT DISTINCT select_list FROM table_name;
+- 조회 결과에서 중복된 행을 제거
+- DISTINCT 절은 SELECT 에서 선택적으로 사용할 수 있음
+- SELECT절 뒤에 나와야함 DISTINCT 뒤에 컬럼 또는 컬럼 목록을 작성
+- NULL 값을 중복으로 간주
+
+---
+#### WHERE
+- select COLUMN_LIST from TABLE_NAME where SERCH_CONDITION;
+- SELECT 문 외에도 UPDATE 및 DELETE 문에서 WHERE 절을 사용할 수 있음
+- FROM 절 뒤에 작성
+- WHERE column_1 = 10
+- WHERE column_1 = LIKE 'Ko%'
+- WHERE column_1 = IN (1, 2)
+- WHERE column_1 = BETWEEN 10 AND 20
+- 
