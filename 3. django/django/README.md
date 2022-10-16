@@ -74,4 +74,13 @@
 #### SQL Syntax
 - 모든 SQL문은 SELECT, INSERT, UPDATE 등과 같은 키워드로 시작하고, 하나의 statement는 세미콜론(;)으로 끝남
 - SQL 키워드는 대소문자를 구분하지 않음 하지만 대문자로 작성하는 것을 권장
-- 
+
+---
+#### CREATE TABLE
+```python
+CREATE TABLE contacts (
+  name TEXT NOT NULL,
+  age INTERGER NOT NULL,
+  email TEXT NOT NULL UNIQUE
+);
+```
