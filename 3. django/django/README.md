@@ -152,4 +152,82 @@ CREATE TABLE contacts (
 - WHERE column_1 = LIKE 'Ko%'
 - WHERE column_1 = IN (1, 2)
 - WHERE column_1 = BETWEEN 10 AND 20
-- 
+
+---
+#### GROUP BY
+```python
+SELECT column_1, aggregate_function(column_2)
+From table_name
+GROUP BY column_!, column_2;
+```
+- 특정 그룹으로 묶인 결과를 생성
+- SELECT 문의 FROM 절 뒤에 작성
+- AS 키워드를 사용해 컬럼명을 임시로 변경하여 조회할 수 있음
+
+```python
+# 인원이 가장 많은 성씨 순으로 조회
+SELECT last_name, COUNT(*) FROM users
+GROUP BY last_name ORDER BY COUNT(*) DESC;
+```
+```python
+# 각 지역별 평균 나이 조회하기
+SELECT country, AVG(age) FROM users
+GROUP BY country;
+```
+
+---
+#### INSERT
+- 먼저 INSERT INTO 키워드 뒤에 데이터를 삽입할 테이블의 이름을 지정
+- 테이블 이름 뒤에 쉼표로 구분된 컬럼 목록을 추가
+- VALUES 키워드 뒤에 쉼표로 구분된 값 목록을 추가(만약 컬럼 목록을 생략하는 경우 값 목록의 모든 컬럼에 대한 값을 지정해야 함)
+```python
+INSERT INTO classmates (name, age, address)
+VALUES ('홍길동', 23, '서울');
+```
+```python
+INSERT INTO classmates
+VALUES ('홍길동', 23, '서울');
+```
+- 여러 행 삽입하기
+```python
+INSERT INTO classmates
+VALUES
+  ('김철수', 30, '경기'),
+  ('김철수', 30, '경기'),
+  ('김철수', 30, '경기'),
+  ('김철수', 30, '경기'),
+  ('김철수', 30, '경기');
+```
+
+---
+#### UPDATE
+- 테이블에 있는 기존 행의 데이터를 업데이트
+- UPDATE 절 이후에 업데이트할 테이블을 지정
+- SET 절에서 테이블의 각 컬렁메 대해 새 값을 설정
+- WHERE 절의 조건을 사용하여 업데이트할 행을 지정(선택사항이며, 생략하면 테이블의 모든 행에 있는 데이터를 업데이트 함)
+```python
+UPDATE classmates
+# 2번 데이터의 이름과 주소를 수정하기
+SET name='김철수한무두루미',
+    address='제주도'
+WHERE rowid = 2;
+```
+
+---
+#### DELETE
+- 한행, 여러행 및 모든 행을 삭제할 수 있음
+- DELETE FROM 키워드 뒤에 행을 제거하려는 테이블의 이름을 지정
+- WHERE 절에 검색 조건을 추가하여 제거할 행을 식별(생략하면 테이블의 모든 행을 삭제)
+```python
+# 5번 데이터 삭제하기
+DELETE FROM classmates WHERE rowid = 5;
+```
+```python
+# 이름에 '영'이 포함되는 데이터 삭제하기
+DELETE FROM classmates WHERE name LIKE '%영%';
+```
+```python
+# 테이블의 모든 데이터 삭제하기
+DELETE FROM classmates;
+```
+
