@@ -8,4 +8,3 @@
 | 05   | Django Authentication System |
 | 07   | Django managing staticfiles  |
 | 08   | Django REST Framework        |
-
