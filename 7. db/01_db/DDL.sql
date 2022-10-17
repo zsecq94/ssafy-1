@@ -7,7 +7,7 @@ CREATE TABLE contacts (
 
 --수정1
 ALTER TABLE contacts
-RENAME to new_contacts;
+RENAME TO new_contacts;
 
 --수정2
 ALTER TABLE new_contacts
