@@ -1,5 +1,5 @@
 import copy
-# import sys; sys.stdin = open('123.txt', 'r')
+import sys; sys.stdin = open('123.txt', 'r')
 from collections import deque
 
 def find_zero(arr1):
