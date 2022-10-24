@@ -2,8 +2,11 @@
 
 N = int(input())
 arr = list(map(int, input().split()))
+d = [1]*N
 
 for i in range(1, N):
-    arr[i] = max(arr[i], arr[i-1] + arr[i])
+    for j in range(i):
+        if arr[i] > arr[j]:
+            d[i] = max(d[i], d[j]+1)
 
-print(max(arr))
+print(max(d))
