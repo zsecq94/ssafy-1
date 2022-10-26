@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log('Hi')
+    let FirstPromise = new Promise((resolve, reject) => {
+      setTimeout(function () {
+        // resolve = then((여기로 넘겨주는 값))
+        resolve('SSAFY')
+      }, 3000)
+    })
+    FirstPromise.then((res) => {
+      console.log(res)
+      console.log('Bye')
+    })
+    
+    
+  </script>
+</body>
+</html>
