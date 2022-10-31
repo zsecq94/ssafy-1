@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>회문 검사기</h1>
+  <div id="app">
+    <input @input="onInputChange1" type="text">
+    <button @click="check(str)">확인하기</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        str: ''
+      },
+      methods: {
+        onInputChange1: function (event) {
+          this.str = event.target.value
+        },
+        check: function (str) {
+          const reversed = str.split('').reverse().join('');
+          console.log(reversed)
+          if (str.length == 0) {
+            alert('입력값이 없습니다!')
+          } else if (str == reversed) {
+            alert('회문입니다!')
+          } else {
+            alert('회문이 아닙니다!')
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
