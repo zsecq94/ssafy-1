@@ -24,16 +24,31 @@
 <body>
   <div id="app">
     <h1>버튼을 골라주세요</h1>
-    <button>선택 1</button>
-    <button>선택 2</button>
+    <button @click="buttonToggle" :class="theme">선택 1</button>
+    <button @click="buttonToggle" :class="theme1">선택 2</button>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
+        isActive: true,
+        theme: 'button',
+        theme1: 'selected',
       },
       methods: {
+        buttonToggle(isActive) {
+          console.log(this.isActive)
+          this.isActive = !this.isActive
+          if (this.isActive) {
+            this.theme = 'button'
+            this.theme1 = 'selected'
+          } else {
+            this.theme = 'selected'
+            this.theme1 = 'button'
+          }
+        },
       }
     })
   </script>
