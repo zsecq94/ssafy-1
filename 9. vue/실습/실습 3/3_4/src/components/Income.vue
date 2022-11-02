@@ -10,10 +10,15 @@
         type="number"
         v-model.number="asdMoney"
       ></p>
-    <Taxrate :income-props="incomeMoney"
-    :abs-props="asdMoney"/>
     <hr>
-    <Taxrate/>
+    <h2>종합소득금액: {{ incomeMoney }} 만원</h2>
+    <h2>종합소득공제: (-) 150 만원</h2>
+    <h2 v-if="incomeMoney-150 > 0">과세표준: {{incomeMoney - 150}} 만원</h2>
+    <h2 v-if="incomeMoney-150 <= 0">과세표준: 만원</h2>
+    <hr>
+    <Taxrate 
+    :income-props="incomeMoney-150"
+    :abs-props="asdMoney"/>
   </div>
 </template>
 
