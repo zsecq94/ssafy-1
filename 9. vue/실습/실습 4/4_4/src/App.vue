@@ -51,7 +51,6 @@ export default {
       .catch((error) => {console.log(error)})
   }
 }
-// AIzaSyBTX2_gE9Dd3AHnmkn56wMTRdkkNx8XFnY
 </script>
 
 <style>
