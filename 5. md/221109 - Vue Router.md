@@ -95,12 +95,10 @@ export default {
 - 라우트 목록의 가장 마지막에 작성해야 함
 
 ```js
-{
+  {
     path: '*',
-    redirect: '/404'
+    redirect: { name: 'NotFound404' }
   }
 ```
 
 ---
-
-
