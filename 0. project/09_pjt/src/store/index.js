@@ -12,7 +12,7 @@ export default new Vuex.Store({
   },
   mutations: {
     GET_MOVIES(state,movies){
-      state.movies=movies
+      state.movies.push(movies)
     },
     GET_INPUT_DATA(state, inputData) {
       const inputDataObj = {
