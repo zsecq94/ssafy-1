@@ -4,6 +4,7 @@
       <img :src="imgSrc" class="card-img-top align-self-center" alt="..." style=" height: 300px; ">
       <div class="card-body">
         <b>{{movie.title}} </b>
+        <b>{{movie}}</b>
         <p>{{a}}</p>
       </div>
     </div>   
