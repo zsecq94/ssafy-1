@@ -12,11 +12,7 @@ React-study-repository
   
   - npm i @material-ui/core
   
-  - npm install @mui/material @emotion/react @emotion/styled
-  
-  - npm install @mui/material @mui/styled-engine-sc styled-components
-  
-  - npm i @material-ui/icons
+  - npm install @mui/material @mui/styled-engine-sc styled-components @emotion/styled @emotion/react @material-ui/core/Grid
   
   - npm install @mui/icons-material
   
