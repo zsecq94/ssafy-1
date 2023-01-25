@@ -17,3 +17,5 @@ React-study-repository
   - npm install @mui/icons-material
   
   - npm install --verbose : npm에러 때문에 npm start가 안될때 해결됨
+  
+  - npm install 뒤에  **--save --legacy-peer-deps** 를 추가하면 됨
